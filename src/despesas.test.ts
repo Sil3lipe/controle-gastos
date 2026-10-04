@@ -4,6 +4,7 @@ import {
   adicionarDespesa,
   removerDespesa,
   despesasDaCategoria,
+  maiorDespesa,
 } from "./despesas";
 import type { Despesa } from "./tipos";
 
@@ -203,4 +204,50 @@ it("retorna uma lista vazia quando não há despesas da categoria", () => {
 
 it("retorna uma lista vazia ao filtrar uma lista vazia", () => {
   expect(despesasDaCategoria([], "transporte")).toEqual([]);
+});
+it("retorna a despesa de maior valor sem alterar a ordem original", () => {
+  const almoco: Despesa = {
+    id: 1,
+    descricao: "Almoço",
+    valor: 20,
+    categoria: "alimentação",
+    mes: 1,
+  };
+
+  const aluguel: Despesa = {
+    id: 2,
+    descricao: "Aluguel",
+    valor: 800,
+    categoria: "moradia",
+    mes: 2,
+  };
+
+  const cinema: Despesa = {
+    id: 3,
+    descricao: "Cinema",
+    valor: 30,
+    categoria: "lazer",
+    mes: 3,
+  };
+
+  const original: Despesa[] = [almoco, aluguel, cinema];
+
+  expect(maiorDespesa(original)).toBe(aluguel);
+  expect(original).toEqual([almoco, aluguel, cinema]);
+});
+
+it("retorna undefined quando a lista está vazia", () => {
+  expect(maiorDespesa([])).toBeUndefined();
+});
+
+it("retorna a própria despesa quando a lista tem um único item", () => {
+  const onibus: Despesa = {
+    id: 4,
+    descricao: "Ônibus",
+    valor: 35,
+    categoria: "transporte",
+    mes: 1,
+  };
+
+  expect(maiorDespesa([onibus])).toBe(onibus);
 });
