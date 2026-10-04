@@ -251,3 +251,23 @@ it("retorna a própria despesa quando a lista tem um único item", () => {
 
   expect(maiorDespesa([onibus])).toBe(onibus);
 });
+it("mantém a primeira despesa em caso de empate no maior valor", () => {
+  const cinema: Despesa = {
+    id: 10,
+    descricao: "Cinema",
+    valor: 50,
+    categoria: "lazer",
+    mes: 1,
+  };
+
+  const teatro: Despesa = {
+    id: 11,
+    descricao: "Teatro",
+    valor: 50,
+    categoria: "lazer",
+    mes: 2,
+  };
+
+  expect(maiorDespesa([cinema, teatro])).toBe(cinema);
+  expect(maiorDespesa([teatro, cinema])).toBe(teatro);
+});
