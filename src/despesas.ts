@@ -9,3 +9,9 @@ export function totalGasto(despesas: Despesa[]): number {
 
   return total;
 }
+export function adicionarDespesa(
+  despesas: Despesa[],
+  nova: Despesa,
+): Despesa[] {
+  throw new Error("não implementado");
+}
