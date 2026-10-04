@@ -24,3 +24,9 @@ export function adicionarDespesa(
   // Cria outro array para preservar a lista recebida.
   return [...despesas, nova];
 }
+export function removerDespesa(
+  despesas: Despesa[],
+  id: number,
+): Despesa[] {
+  throw new Error("não implementado");
+}

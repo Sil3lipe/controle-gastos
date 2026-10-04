@@ -1,5 +1,9 @@
 import { expect, it } from "vitest";
-import { totalGasto, adicionarDespesa } from "./despesas";
+import {
+  totalGasto,
+  adicionarDespesa,
+  removerDespesa,
+} from "./despesas";
 import type { Despesa } from "./tipos";
 
 it("retorna zero quando a lista de despesas está vazia", () => {
@@ -101,4 +105,53 @@ it.each([1, 12])("aceita uma despesa no mês %s", (mes) => {
   };
 
   expect(adicionarDespesa([], nova)).toEqual([nova]);
+});
+it("remove a despesa pelo id sem alterar o array original", () => {
+  const almoco: Despesa = {
+    id: 1,
+    descricao: "Almoço",
+    valor: 20,
+    categoria: "alimentação",
+    mes: 1,
+  };
+
+  const onibus: Despesa = {
+    id: 2,
+    descricao: "Ônibus",
+    valor: 35,
+    categoria: "transporte",
+    mes: 2,
+  };
+
+  const original: Despesa[] = [almoco, onibus];
+  const resultado = removerDespesa(original, 1);
+
+  expect(resultado).toEqual([onibus]);
+  expect(original).toEqual([almoco, onibus]);
+  expect(resultado).not.toBe(original);
+});
+
+it("retorna uma cópia quando o id não existe", () => {
+  const cinema: Despesa = {
+    id: 3,
+    descricao: "Cinema",
+    valor: 30,
+    categoria: "lazer",
+    mes: 3,
+  };
+
+  const original: Despesa[] = [cinema];
+  const resultado = removerDespesa(original, 999);
+
+  expect(resultado).toEqual([cinema]);
+  expect(original).toEqual([cinema]);
+  expect(resultado).not.toBe(original);
+});
+
+it("retorna outro array vazio ao remover de uma lista vazia", () => {
+  const original: Despesa[] = [];
+  const resultado = removerDespesa(original, 1);
+
+  expect(resultado).toEqual([]);
+  expect(resultado).not.toBe(original);
 });
