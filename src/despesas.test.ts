@@ -3,6 +3,7 @@ import {
   totalGasto,
   adicionarDespesa,
   removerDespesa,
+  despesasDaCategoria,
 } from "./despesas";
 import type { Despesa } from "./tipos";
 
@@ -154,4 +155,52 @@ it("retorna outro array vazio ao remover de uma lista vazia", () => {
 
   expect(resultado).toEqual([]);
   expect(resultado).not.toBe(original);
+});
+it("retorna somente as despesas da categoria sem alterar a original", () => {
+  const almoco: Despesa = {
+    id: 1,
+    descricao: "Almoço",
+    valor: 20,
+    categoria: "alimentação",
+    mes: 1,
+  };
+
+  const onibus: Despesa = {
+    id: 2,
+    descricao: "Ônibus",
+    valor: 35,
+    categoria: "transporte",
+    mes: 2,
+  };
+
+  const jantar: Despesa = {
+    id: 3,
+    descricao: "Jantar",
+    valor: 40,
+    categoria: "alimentação",
+    mes: 3,
+  };
+
+  const original: Despesa[] = [almoco, onibus, jantar];
+  const resultado = despesasDaCategoria(original, "alimentação");
+
+  expect(resultado).toEqual([almoco, jantar]);
+  expect(original).toEqual([almoco, onibus, jantar]);
+  expect(resultado).not.toBe(original);
+});
+
+it("retorna uma lista vazia quando não há despesas da categoria", () => {
+  const cinema: Despesa = {
+    id: 4,
+    descricao: "Cinema",
+    valor: 30,
+    categoria: "lazer",
+    mes: 1,
+  };
+
+  expect(despesasDaCategoria([cinema], "moradia")).toEqual([]);
+});
+
+it("retorna uma lista vazia ao filtrar uma lista vazia", () => {
+  expect(despesasDaCategoria([], "transporte")).toEqual([]);
 });
