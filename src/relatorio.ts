@@ -1,6 +1,7 @@
 import type { Categoria, Despesa } from "./tipos";
 import { CATEGORIAS } from "./tipos";
 
+
 export function matrizCategoriaMes(despesas: Despesa[]): number[][] {
   const matriz: number[][] = [];
 
@@ -35,4 +36,7 @@ export function descricaoCategoria(categoria: Categoria): string {
     case "moradia":
       return "Moradia";
   }
+}
+export function formatarRelatorio(despesas: Despesa[]): string {
+  throw new Error("não implementado");
 }
