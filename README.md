@@ -77,12 +77,12 @@ Os primeiros testes foram construídos com as orientações passadas pelo profes
 
 ## Reflexão sobre o processo
   
-A primeira implementação do relatório produziu um espaço a menos nas colunas, detectado pelos testes.  
-Foi necessário corrigir padEnd de 16 para 17, mantendo os resultados esperados dos testes.  
-Durante a edição, descricaoCategoria foi removida acidentalmente e precisou ser restaurada. A IA forneceu os testes completos.
+A IA forneceu os testes completos.
+Essa participação foi maior que a prevista no modo Par e está registrada neste README.
+A implementação inicial do relatório tinha um espaço a menos, identificado pelos testes.
 Foi necessário ajustar padEnd de 16 para 17 e restaurar uma função removida durante a edição.
 Escolhi investigar empates em maiorDespesa, e a IA escreveu o teste que inverte a ordem das despesas.
-Os 28 testes passaram; a revisão de compreensão das últimas funções ainda está pendente.  
+Os 28 testes passaram; a revisão de compreensão das últimas funções ainda está pendente.
 
 ## Resultado verificado
 
