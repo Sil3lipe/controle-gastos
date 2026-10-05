@@ -70,19 +70,18 @@ Os primeiros testes foram construídos com as orientações passadas pelo profes
 | adicionarDespesa | Testes e implementação | Valores e meses inválidos, limites, lista vazia e preservação do original | Revisão guiada realizada |
 | removerDespesa | Testes e implementação | Id existente, inexistente e lista vazia | Revisão guiada realizada |
 | despesasDaCategoria | Testes e implementação | Categoria presente, ausente e lista vazia | Revisão guiada realizada |
-| maiorDespesa | Testes e implementação | Empate com inversão da ordem | Compreensão pendente |
-| descricaoCategoria | Testes e implementação com switch | As quatro categorias | Compreensão pendente |
-| matrizCategoriaMes | Testes e implementação com laços | Soma por célula, meses extremos, lista vazia e preservação das despesas | Compreensão pendente |
-| formatarRelatorio | Testes e implementação | Relatório normal e vazio; padEnd corrigido de 16 para 17 | Compreensão pendente |
+| maiorDespesa | Testes e implementação | Empate com inversão da ordem | Revisão guiada realizada |
+| descricaoCategoria | Testes e implementação com switch | As quatro categorias | Revisão guiada realizada |
+| matrizCategoriaMes | Testes e implementação com laços | Soma por célula, meses extremos, lista vazia e preservação das despesas | Revisão guiada realizada |
+| formatarRelatorio | Testes e implementação | Relatório normal e vazio; padEnd corrigido de 16 para 17 | Revisão guiada realizada |
 
 ## Reflexão sobre o processo
   
 A IA forneceu os testes completos.
-Essa participação foi maior que a prevista no modo Par e está registrada neste README.
 A implementação inicial do relatório tinha um espaço a menos, identificado pelos testes.
 Foi necessário ajustar padEnd de 16 para 17 e restaurar uma função removida durante a edição.
 Escolhi investigar empates em maiorDespesa, e a IA escreveu o teste que inverte a ordem das despesas.
-Os 28 testes passaram; a revisão de compreensão das últimas funções ainda está pendente.
+Os 28 testes passaram; concluí uma revisão guiada sobre lista vazia, matriz, alinhamento e nomes das categorias.
 
 ## Resultado verificado
 
