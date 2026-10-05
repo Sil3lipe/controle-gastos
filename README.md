@@ -61,8 +61,7 @@ A matriz tem quatro linhas e doze colunas, de janeiro a dezembro, e é construí
 
 ## Registro de uso de IA
 
-Foi utilizado o Codex para código, diagnóstico de erros e revisão guiada. A configuração também foi feita com instruções da IA, executadas pelo estudante.
-
+Foi utilizado o Codex para diagnóstico de erros e revisão guiada. A configuração foi executada pelo estudante.
 Os primeiros testes foram construídos com as orientações passadas pelo professor. Posteriormente, a pedido do estudante, a IA também forneceu os testes completos.
 
 | Função | Participação da IA | Testes e ajustes | Revisão |
@@ -71,7 +70,7 @@ Os primeiros testes foram construídos com as orientações passadas pelo profes
 | adicionarDespesa | Testes e implementação | Valores e meses inválidos, limites, lista vazia e preservação do original | Revisão guiada realizada |
 | removerDespesa | Testes e implementação | Id existente, inexistente e lista vazia | Revisão guiada realizada |
 | despesasDaCategoria | Testes e implementação | Categoria presente, ausente e lista vazia | Revisão guiada realizada |
-| maiorDespesa | Testes e implementação | Maior valor, lista vazia e item único | Compreensão pendente |
+| maiorDespesa | Testes e implementação | Empate com inversão da ordem | Compreensão pendente |
 | descricaoCategoria | Testes e implementação com switch | As quatro categorias | Compreensão pendente |
 | matrizCategoriaMes | Testes e implementação com laços | Soma por célula, meses extremos, lista vazia e preservação das despesas | Compreensão pendente |
 | formatarRelatorio | Testes e implementação | Relatório normal e vazio; padEnd corrigido de 16 para 17 | Compreensão pendente |
@@ -80,10 +79,13 @@ Os primeiros testes foram construídos com as orientações passadas pelo profes
   
 A primeira implementação do relatório produziu um espaço a menos nas colunas, detectado pelos testes.  
 Foi necessário corrigir padEnd de 16 para 17, mantendo os resultados esperados dos testes.  
-Durante a edição, descricaoCategoria foi removida acidentalmente e precisou ser restaurada.  
+Durante a edição, descricaoCategoria foi removida acidentalmente e precisou ser restaurada. A IA forneceu os testes completos.
+Foi necessário ajustar padEnd de 16 para 17 e restaurar uma função removida durante a edição.
+Escolhi investigar empates em maiorDespesa, e a IA escreveu o teste que inverte a ordem das despesas.
+Os 28 testes passaram; a revisão de compreensão das últimas funções ainda está pendente.  
 
 ## Resultado verificado
 
 O programa de exemplo apresentou total geral de R$ 1780.00 e maior despesa de R$ 900.00, referente ao aluguel de janeiro.
 
-Na última execução, os 27 testes passaram e a verificação de tipos terminou sem erros.
+Na última execução, os 28 testes passaram e a verificação de tipos terminou sem erros.
